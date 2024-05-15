@@ -1,0 +1,122 @@
+/* Styles for chat interface */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: aliceblue;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4rem;
+    color: aliceblue;
+}
+
+#container1 {
+    display: grid;
+    grid-template-columns: 20% 80%; /* 20% for side-container, 80% for chat-container */
+    height: 100%; /* Make sure container takes full height of the viewport */
+}
+
+#side-container {
+    background-color: #2e3944; /* Dark background color */
+    border-right: 1px solid #556677; /* Dark border color */
+    height: 100%; /* Make sure it takes full height */
+}
+
+#side-container h1 {
+    margin-left: 20px;
+}
+
+#chat-container {
+    background-color: #34404f; /* Darker blue background for messages */
+    border-left: 1px solid #556677; /* Dark border color */
+    display: flex; /* Use flexbox for chat container */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Distribute space evenly between children */
+    height: 100%; /* Make sure it takes full height */
+    overflow-y: auto; /* Enable scrolling if content exceeds container height */
+}
+
+#chat-container h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#chat-messages {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    /* Adjust height to fit remaining space */
+    height: calc(100% - 120px); /* Subtract header and form heights */
+    overflow-y: auto; /* Enable scrolling if content exceeds container height */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    scroll-padding-bottom: 50px; /* Adjust this value as needed to keep the last message visible */
+}
+
+
+#chat-messages p {
+    font-size: 1.5rem;
+    color: #c8d1d9; /* Light text color */
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#chat-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3d4857; /* Darker gray background for input field */
+    color: #c8d1d9; /* Light text color */
+    margin-bottom: 10px;
+}
+
+#chat-input::placeholder {
+    color: #99aab5; /* Placeholder text color */
+}
+
+#chat-input:focus {
+    outline: none;
+}
+
+button[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f5d75; /* Dark blue button background color */
+    color: #c8d1d9; /* Light button text color */
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #667a94; /* Darker blue hover color */
+}
+
+/* Customize scrollbar for chat messages */
+#chat-messages::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #888; /* Set the color of the scrollbar thumb */
+    border-radius: 6px; /* Round the corners of the thumb */
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Change the color of the thumb on hover */
+}
+
