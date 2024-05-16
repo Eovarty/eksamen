@@ -16,6 +16,7 @@
             <div id="chat-messages">
                 <?php include 'fetch_messages.php'; ?>
             </div>
+            <p id="scrollTarget"></p>
             <form action="send_message.php" method="post">
                 <div id="message-container">
                     <textarea name="message" id="chat-input" placeholder="Type your message..."></textarea>
@@ -24,5 +25,13 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // After the content is loaded, scroll to the bottom of the chat-messages div
+        window.addEventListener('load', function() {
+            var chatMessages = document.getElementById('chat-messages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+    </script>
 </body>
 </html>
