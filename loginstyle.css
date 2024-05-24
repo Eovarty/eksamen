@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #B5C0D0;
+    background-color: #34404f; /* Main background color */
     margin: 0;
     padding: 0;
 }
@@ -12,6 +12,7 @@ h2 {
     margin-top: 50px;
     font-family: "Raleway", sans-serif;
     font-size: 4rem;
+    color: aliceblue; /* Matching text color */
 }
 
 form {
@@ -19,10 +20,10 @@ form {
     flex-direction: column;
     max-width: 500px;
     margin: 200px auto;
-    background-color: white;
+    background-color: #2e3944; /* Increased contrast background color */
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Increased shadow for contrast */
     font-family: "Raleway", sans-serif;
     font-size: 2rem;
     text-align: center;
@@ -31,37 +32,46 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    color: aliceblue; /* Matching text color */
 }
 
 input[type="text"],
-textarea {
-    background-color: white;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 25px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
+textarea,
 input[type="password"] {
-    background-color: white;
+    background-color: #3d4857; /* Matching background color */
     width: 100%;
     padding: 10px;
     margin-bottom: 25px;
-    border: 1px solid #ccc;
+    border: 1px solid #556677; /* Matching border color */
     border-radius: 3px;
     box-sizing: border-box;
+    color: #c8d1d9; /* Matching text color */
 }
-
 
 textarea {
     height: 100px;
 }
 
+/* Apply styling to search button */
+button[type="submit"][name="search-button"] {
+    background-color: #4f5d75;
+    color: #c8d1d9;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.5rem;
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+button[type="submit"][name="search-button"]:hover {
+    background-color: #667a94;
+}
+
 input[type="submit"] {
-    background-color: #8698b2;
-    color: white;
+    background-color: #4f5d75; /* Matching background color */
+    color: #c8d1d9; /* Matching text color */
     padding: 10px 25px;
     border: none;
     border-radius: 3px;
@@ -73,9 +83,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #667a94; /* Matching hover background color */
 }
-
 
 /* Adjust the CSS for the "Back to login" link */
 a.btn {
@@ -83,9 +92,14 @@ a.btn {
     text-align: center; /* Center the link horizontally */
     font-size: 1.5rem; /* Set the font size */
     text-decoration: none; /* Remove default underline */
-    color: #0056b3; /* Set the link color */
+    color: #c8d1d9; /* Matching link color */
 }
 
 a.btn:hover {
-    color: #003366; /* Change link color on hover */
+    color: #99aab5; /* Change link color on hover */
+}
+
+/* Additional changes */
+h5 {
+    color: white; /* Set h5 text color to white */
 }

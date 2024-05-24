@@ -9,7 +9,17 @@
 <body>
     <div id="container1">
         <div id="side-container">
-            <h1>Hei</h1>
+            <div class="dropdown">
+                <button class="dropbtn">Meny</button>
+                <div class="dropdown-content">
+                    <a href="login.html">Login</a>
+                    <a href="friend.php">Friends</a>
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="contact.html">Contact us</a>
+                    <a href="contact.html">Contact us</a>
+                    <a href="delete.php">Delete users</a>
+                </div>
+            </div>
         </div>
         <div id="chat-container">
             <h2>Chat System</h2>

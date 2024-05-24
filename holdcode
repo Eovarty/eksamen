@@ -27,3 +27,18 @@
                 }
                 $conn->close();
                 ?>
+
+
+CREATE TABLE friendships (
+    friendshipID INT AUTO_INCREMENT PRIMARY KEY,
+    userID1 INT,
+    userID2 INT,
+    status ENUM('pending', 'accepted', 'declined') DEFAULT 'pending',
+    FOREIGN KEY (userID1) REFERENCES users(userID),
+    FOREIGN KEY (userID2) REFERENCES users(userID),
+    CONSTRAINT unique_friendship UNIQUE (LEAST(userID1, userID2), GREATEST(userID1, userID2))
+);
+
+
+
+<a href="friend.php"><button>Add friends</button></a>

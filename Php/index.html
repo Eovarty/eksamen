@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat System</title>
+    <style>
+        #chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        #messages {
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+
+        <div id="chat-container">
+            <div id="messages"></div>
+            <input type="text" id="sender" placeholder="Your Name">
+            <textarea id="message" placeholder="Type your message"></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    
+        <script>
+            function sendMessage() {
+                var sender = document.getElementById("sender").value;
+                var message = document.getElementById("message").value;
+    
+                if (sender && message) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "save_message.php", true);
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhr.send("sender=" + sender + "&message=" + message);
+    
+                    xhr.onload = function () {
+                        if (xhr.status == 200) {
+                            document.getElementById("message").value = "";
+                            loadMessages();
+                        } else {
+                            console.error(xhr.statusText);
+                        }
+                    };
+                } else {
+                    alert("Please enter your name and message");
+                }
+            }
+    
+            function loadMessages() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "get_messages.php", true);
+                xhr.send();
+    
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        var messages = JSON.parse(xhr.responseText);
+                        var messagesContainer = document.getElementById("messages");
+                        messagesContainer.innerHTML = "";
+    
+                        messages.forEach(function (message) {
+                            messagesContainer.innerHTML +=
+                                "<strong>" + message.sender + ":</strong> " + message.message + "<br>";
+                        });
+    
+                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    } else {
+                        console.error(xhr.statusText);
+                    }
+                };
+            }
+    
+            setInterval(loadMessages, 3000); // Update messages every 3 seconds
+            loadMessages(); // Load messages initially
+        </script>
+
+</body>
+</html>

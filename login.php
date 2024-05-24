@@ -1,12 +1,12 @@
 <?php
-// Start the session to manage user sessions
-session_start();
-
 // Include the file containing the database connection code
 include 'db.php';
 
 // Check if the form data is sent using the POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Start the session to manage user sessions
+    session_start();
+
     // Retrieve username and password from the POST data
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify if the provided password matches the hashed password in the database
         if (password_verify($password, $row['password'])) {
             // Set session variables upon successful login for non-admin users
-            $_SESSION['userID'] = $row['userID'];
+            $_SESSION['userID'] = $row['userID']; // Save userID in session
             $_SESSION['username'] = $row['username']; // Save username in session
-            header('Location: test.php');
+            header('Location: chat.php');
             exit();
         } else {
             // Password verification failed
@@ -37,5 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // No user found with the provided username
         echo "Invalid username or password";
     }
+} else {
+    // Redirect users to the login page if form data is not sent using the POST method
+    header("Location: login.html");
+    exit();
 }
 ?>

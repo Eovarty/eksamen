@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Utfør SQL-setningen for å sette inn meldingen
     if ($insert_query->execute()) {
         // Vellykket innsetting av meldingj
-        header('Location: test.php');
+        header('Location: chat.php');
     } else {
         // Feil ved innsetting av melding
         echo "Feil ved sending av melding: " . $conn->error;
