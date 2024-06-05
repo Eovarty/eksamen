@@ -16,9 +16,12 @@
                     <a href="friend.php">Friends</a>
                     <a href="FAQ.html">FAQ</a>
                     <a href="contact.html">Contact us</a>
-                    <a href="contact.html">Contact us</a>
+                    <a href="friendlist.php">friendlist</a>
                     <a href="delete.php">Delete users</a>
                 </div>
+            </div>
+            <div id="friendlist">
+                <?php include 'friendlist.php'; ?>
             </div>
         </div>
         <div id="chat-container">
